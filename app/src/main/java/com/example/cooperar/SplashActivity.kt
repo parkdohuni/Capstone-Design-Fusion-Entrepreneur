@@ -1,4 +1,4 @@
 package com.example.cooperar
 
-class SplachActivity {
+class SplashActivity {
 }
