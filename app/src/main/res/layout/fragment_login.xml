@@ -6,6 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".RegisterFragment">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/id_et"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/id_et"
+        android:layout_width="153dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/edittext_round"
+        android:hint="아이디"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/pw_et"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/pw_et"
+        android:layout_width="148dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/edittext_round"
+        android:hint="비밀번호"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/login_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/button_round"
+        android:backgroundTint="#4E5FFF"
+        android:text="로그인"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/register_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/register_tv"
         android:layout_width="wrap_content"
@@ -14,9 +62,10 @@
         android:textColor="#4E5FFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="453dp" />
+        tools:layout_editor_absoluteY="537dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
