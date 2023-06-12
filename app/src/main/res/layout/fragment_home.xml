@@ -43,54 +43,71 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2023년 4월 13일 목요일"
-                    android:textSize="20dp"
                     android:textColor="@color/black"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    android:textSize="20dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/textView"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="워시엔조이 대구 신암점"
-                    tools:ignore="MissingConstraints"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="30dp"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="50dp" />
+                    android:layout_marginBottom="10dp"
+
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textView2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/textView2"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="대구 동구 아양로9길 20 1층 워시엔조이 셀프빨래방 대구신암점"
-                    tools:ignore="MissingConstraints"
                     android:textSize="11dp"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="151dp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+
+                    app:layout_constraintBottom_toTopOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="MissingConstraints" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="92dp"
                     android:background="@drawable/round"
                     android:scaleType="centerCrop"
+
                     android:src="@drawable/home_example"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="238dp"
-                    tools:layout_editor_absoluteY="50dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
 
                 <ImageView
+                    android:id="@+id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
                     android:src="@drawable/check_mission"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="203dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginBottom="10dp"
+
+                    tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
