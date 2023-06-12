@@ -20,7 +20,12 @@ class HomeFragment: Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        /* Bottom Menu */
+        val bottomMenu = (requireActivity() as MainActivity).binding.bottomNav
+        bottomMenu.visibility = View.VISIBLE
 
+        val toolbarBackBtn = (requireActivity() as MainActivity).binding.toolbarBackBtn
+        toolbarBackBtn.visibility = View.VISIBLE
         return binding.root
     }
 
