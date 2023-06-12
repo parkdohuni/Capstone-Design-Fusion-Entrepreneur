@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/kotlin,androidstudio
 # Edit at https://www.toptal.com/developers/gitignore?templates=kotlin,androidstudio
 # Local configuration file (sdk path, etc)
+*.lock
+*.bin
 local.properties
 
 # Log/OS Files
