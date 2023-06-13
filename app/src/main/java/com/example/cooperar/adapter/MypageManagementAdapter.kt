@@ -4,24 +4,25 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cooperar.databinding.CardEmergencyBinding
+import com.example.cooperar.databinding.CardMatchingBinding
+import com.example.cooperar.databinding.CardMypageBinding
 
-class EmergencyAdapter() :
-    RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
+class MypageManagementAdapter() :
+    RecyclerView.Adapter<MypageManagementAdapter.MyViewHolder>() {
 
-    class MyViewHolder(private val binding: CardEmergencyBinding) :
+    class MyViewHolder(private val binding: CardMypageBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        var itemTitle: TextView = binding.emergencyCardTitleTv
-        var itemAddress: TextView = binding.emergencyCardAddressTv
+        var itemTitle: TextView = binding.mypageTitleTv
+        var itemTodo: TextView = binding.mypageTodoListTv
     }
 
     // 1. Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): EmergencyAdapter.MyViewHolder {
+    ): MypageManagementAdapter.MyViewHolder {
         val binding =
-            CardEmergencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            CardMypageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
 
         return MyViewHolder(binding)
@@ -29,12 +30,12 @@ class EmergencyAdapter() :
 
     // 2. Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.itemTitle.text = "타이틀입니다"
-        holder.itemAddress.text = "주소입니다."
+        holder.itemTitle.text = "진행 x 가게 이름 하나 둘"
+        holder.itemTodo.text = "업무 등등 등등 등등."
     }
 
     // 3. Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount(): Int {
-        return 5
+        return 1
     }
 }

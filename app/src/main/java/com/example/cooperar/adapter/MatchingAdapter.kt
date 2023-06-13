@@ -29,8 +29,8 @@ class MatchingAdapter() :
 
     // 2. Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.itemTitle.setText("타이틀입니다")
-        holder.itemAddress.setText("주소입니다.")
+        holder.itemTitle.text = "타이틀입니다"
+        holder.itemAddress.text = "주소입니다."
     }
 
     // 3. Return the size of your dataset (invoked by the layout manager)
