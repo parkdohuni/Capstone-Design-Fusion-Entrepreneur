@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".HomeFragment">
+    tools:context=".ui.HomeFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:id="@+id/name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="10dp"
             android:text="이름"
             android:textColor="#4E60FF"
             android:textSize="30dp"
@@ -117,13 +117,14 @@
             android:layout_margin="10dp"
             app:strokeWidth="2dp"
             app:strokeColor="#804E60FF"
-            android:backgroundTint="#804E60FF"
+
             app:cardCornerRadius="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:background="#804E60FF">
 
                 <TextView
                     android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.cooperar
+package com.example.cooperar.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,19 +8,25 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.example.cooperar.databinding.FragmentDetailBinding
+import com.example.cooperar.MainActivity
+import com.example.cooperar.databinding.FragmentHomeBinding
 
-class DetailFragment: Fragment() {
+class HomeFragment: Fragment() {
     /* View */
-    private lateinit var binding: FragmentDetailBinding
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var navController: NavController
     private lateinit var onBackPressedCallback: OnBackPressedCallback
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
+        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        /* Bottom Menu */
+        val bottomMenu = (requireActivity() as MainActivity).binding.bottomNav
+        bottomMenu.visibility = View.VISIBLE
 
+        val toolbar = (requireActivity() as MainActivity).binding.toolbar
+        toolbar.visibility = View.VISIBLE
         return binding.root
     }
 

@@ -1,4 +1,4 @@
-package com.example.cooperar
+package com.example.cooperar.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.example.cooperar.MainActivity
+import com.example.cooperar.R
 import com.example.cooperar.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -29,8 +31,8 @@ class LoginFragment: Fragment() {
         val bottomMenu = (requireActivity() as MainActivity).binding.bottomNav
         bottomMenu.visibility = View.GONE
 
-        val toolbarBackBtn = (requireActivity() as MainActivity).binding.toolbarBackBtn
-        toolbarBackBtn.visibility = View.GONE
+        val toolbar = (requireActivity() as MainActivity).binding.toolbar
+        toolbar.visibility = View.GONE
         return binding.root
     }
 
