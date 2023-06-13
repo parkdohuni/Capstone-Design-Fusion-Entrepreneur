@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cooperar.databinding.CommunityCardBinding
+import com.example.cooperar.databinding.CardCommunityBinding
 
 class CommunityAdapter() :
     RecyclerView.Adapter<CommunityAdapter.MyViewHolder>() {
 
-    class MyViewHolder(private val binding: CommunityCardBinding) :
+    class MyViewHolder(private val binding: CardCommunityBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
 
@@ -23,7 +23,7 @@ class CommunityAdapter() :
         parent: ViewGroup,
         viewType: Int
     ): MyViewHolder {
-        val binding = CommunityCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = CardCommunityBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
 
         return MyViewHolder(binding)

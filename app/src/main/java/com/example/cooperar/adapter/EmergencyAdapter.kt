@@ -4,24 +4,24 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cooperar.databinding.CardMatchingBinding
+import com.example.cooperar.databinding.CardEmergencyBinding
 
-class MatchingAdapter() :
-    RecyclerView.Adapter<MatchingAdapter.MyViewHolder>() {
+class EmergencyAdapter() :
+    RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
 
-    class MyViewHolder(private val binding: CardMatchingBinding) :
+    class MyViewHolder(private val binding: CardEmergencyBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        var itemTitle: TextView = binding.matchingTitleTv
-        var itemAddress: TextView = binding.matchingAddressTv
+        var itemTitle: TextView = binding.emergencyCardTitleTv
+        var itemAddress: TextView = binding.emergencyCardAddressTv
     }
 
     // 1. Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MatchingAdapter.MyViewHolder {
+    ): EmergencyAdapter.MyViewHolder {
         val binding =
-            CardMatchingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            CardEmergencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
 
         return MyViewHolder(binding)
