@@ -55,7 +55,7 @@ class EmergencyFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         navController = Navigation.findNavController(view)
-
+        
     }
 
     override fun onDestroyView() {
