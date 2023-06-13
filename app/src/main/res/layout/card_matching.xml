@@ -27,7 +27,7 @@
 
         <TextView
             android:id="@+id/matching_title_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="제목입니다."
@@ -41,9 +41,10 @@
 
         <TextView
             android:id="@+id/matching_address_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:text="주소 대구 어쩌구 저쩌구"
+            android:layout_marginLeft="10dp"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.1"
             card_view:layout_constraintStart_toEndOf="@+id/matching_iv"

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cooperar.MainActivity
 import com.example.cooperar.adapter.EmergencyAdapter
-import com.example.cooperar.adapter.MatchingAdapter
 import com.example.cooperar.databinding.FragmentEmergencyBinding
 
 class EmergencyFragment: Fragment() {
@@ -55,7 +54,7 @@ class EmergencyFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         navController = Navigation.findNavController(view)
-        
+
     }
 
     override fun onDestroyView() {

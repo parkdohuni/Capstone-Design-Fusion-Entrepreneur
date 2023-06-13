@@ -1,20 +1,23 @@
 package com.example.cooperar.ui
 
+import MatchingAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cooperar.MainActivity
 import com.example.cooperar.R
-import com.example.cooperar.adapter.CommunityAdapter
-import com.example.cooperar.adapter.MatchingAdapter
 import com.example.cooperar.databinding.FragmentMatchingBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 
 class MatchingFragment: Fragment() {
     /* View */
@@ -24,6 +27,9 @@ class MatchingFragment: Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
+    private var auth: FirebaseAuth? = null
+    private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private var storage: FirebaseStorage = FirebaseStorage.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -46,7 +52,6 @@ class MatchingFragment: Fragment() {
             layoutManager = viewManager
             // specify an viewAdapter (see also next example)
             adapter = viewAdapter
-
         }
         return binding.root
     }
