@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cooperar.MainActivity
 import com.example.cooperar.adapter.CommunityAdapter
 import com.example.cooperar.databinding.FragmentCommunityBinding
 
@@ -24,6 +25,12 @@ class CommunityFragment: Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
+        /* Bottom Menu */
+        val bottomMenu = (requireActivity() as MainActivity).binding.bottomNav
+        bottomMenu.visibility = View.VISIBLE
+
+        val toolbar = (requireActivity() as MainActivity).binding.toolbar
+        toolbar.visibility = View.VISIBLE
         binding = FragmentCommunityBinding.inflate(layoutInflater, container, false)
         // 1
         viewManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, true)
