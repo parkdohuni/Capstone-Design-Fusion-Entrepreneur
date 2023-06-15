@@ -41,7 +41,7 @@ class MatchingFragment: Fragment() {
         // 1
         viewManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, true)
         // 2
-        viewAdapter = MatchingAdapter()
+        viewAdapter = MatchingAdapter(this)
         recyclerView = binding.matchingRv.apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView

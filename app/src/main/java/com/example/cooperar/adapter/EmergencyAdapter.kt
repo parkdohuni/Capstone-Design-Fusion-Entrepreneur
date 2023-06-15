@@ -8,13 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cooperar.data.EmergencyData
-import com.example.cooperar.data.MatchingData
 import com.example.cooperar.databinding.CardEmergencyBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 
-class EmergencyAdapter : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
+class EmergencyAdapter() : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
     var emergencyList: ArrayList<EmergencyData> = arrayListOf()
 
     /* User Authentication */
@@ -71,7 +70,7 @@ class EmergencyAdapter : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
         // 이미지를 Glide를 사용하여 가져와서 설정합니다.
         Glide.with(holder.itemView.context)
             .load(emergency.imageUrl)
-            .override(600, 600) // 이미지의 크기를 원하는 크기로 조정
+            .override(300, 300) // 이미지의 크기를 원하는 크기로 조정
             .fitCenter() // 이미지를 디바이스 화면에 맞게 조정
             .into(holder.itemImage)
     }
@@ -80,4 +79,7 @@ class EmergencyAdapter : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
     override fun getItemCount(): Int {
         return emergencyList.size
     }
+}
+class EmergencyClickListener(val clickListener: (emergency: EmergencyData) -> Unit) {
+    fun onClick(emergency: EmergencyData) = clickListener(emergency)
 }
