@@ -36,7 +36,7 @@ class EmergencyFragment: Fragment() {
         // 1
         viewManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, true)
         // 2
-        viewAdapter = EmergencyAdapter()
+        viewAdapter = EmergencyAdapter(this)
         recyclerView = binding.emergencyRv.apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView

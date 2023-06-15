@@ -5,21 +5,24 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cooperar.data.EmergencyData
+import com.example.cooperar.data.MatchingData
 import com.example.cooperar.databinding.CardEmergencyBinding
+import com.example.cooperar.ui.EmergencyFragmentDirections
+import com.example.cooperar.ui.MatchingFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 
-class EmergencyAdapter() : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
-    var emergencyList: ArrayList<EmergencyData> = arrayListOf()
-
+class EmergencyAdapter(private val parentFragment: Fragment) : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
+    var emergencyList: ArrayList<MatchingData> = arrayListOf()
     /* User Authentication */
     private var auth: FirebaseAuth? = null
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private var storage: FirebaseStorage = FirebaseStorage.getInstance()
 
     init {
         auth = FirebaseAuth.getInstance()
@@ -31,7 +34,7 @@ class EmergencyAdapter() : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>()
 
             querySnapshot?.let { snapshot ->
                 for (document in snapshot.documents) {
-                    val item = document.toObject(EmergencyData::class.java)
+                    val item = document.toObject(MatchingData::class.java)
                     item?.let {
                         emergencyList.add(it)
                     }
@@ -57,14 +60,12 @@ class EmergencyAdapter() : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>()
     ): EmergencyAdapter.MyViewHolder {
         val binding =
             CardEmergencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
-
         return MyViewHolder(binding)
     }
 
     // 2. Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val emergency: EmergencyData = emergencyList[position]
+        val emergency: MatchingData = emergencyList[position]
         holder.itemTitle.text = emergency.title
         holder.itemAddress.text = emergency.address
         // 이미지를 Glide를 사용하여 가져와서 설정합니다.
@@ -73,13 +74,14 @@ class EmergencyAdapter() : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>()
             .override(300, 300) // 이미지의 크기를 원하는 크기로 조정
             .fitCenter() // 이미지를 디바이스 화면에 맞게 조정
             .into(holder.itemImage)
+        holder.itemView.setOnClickListener {
+            val action = EmergencyFragmentDirections.actionEmergencyFragmentToDetailFragment(emergency)
+            parentFragment.findNavController().navigate(action)
+        }
     }
 
     // 3. Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount(): Int {
         return emergencyList.size
     }
-}
-class EmergencyClickListener(val clickListener: (emergency: EmergencyData) -> Unit) {
-    fun onClick(emergency: EmergencyData) = clickListener(emergency)
 }

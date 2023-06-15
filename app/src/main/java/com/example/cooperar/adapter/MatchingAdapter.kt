@@ -27,8 +27,7 @@ class MatchingAdapter(private val parentFragment: Fragment) :
     /* User Authentication */
     private var auth: FirebaseAuth? = null
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private var storage: FirebaseStorage = FirebaseStorage.getInstance()
-    private lateinit var navController: NavController
+
 
 
     init {
