@@ -3,8 +3,10 @@ package com.example.cooperar.adapter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.cooperar.data.EmergencyData
 import com.example.cooperar.data.MatchingData
 import com.example.cooperar.databinding.CardEmergencyBinding
@@ -13,7 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 
 class EmergencyAdapter : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
-    var emergencyList : ArrayList<EmergencyData> = arrayListOf()
+    var emergencyList: ArrayList<EmergencyData> = arrayListOf()
+
     /* User Authentication */
     private var auth: FirebaseAuth? = null
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -39,10 +42,13 @@ class EmergencyAdapter : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
             notifyDataSetChanged()
         }
     }
+
     class MyViewHolder(private val binding: CardEmergencyBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var itemTitle: TextView = binding.emergencyCardTitleTv
         var itemAddress: TextView = binding.emergencyCardAddressTv
+        var itemImage: ImageView = binding.emergencyCardIv
+
     }
 
     // 1. Create new views (invoked by the layout manager)
@@ -62,6 +68,12 @@ class EmergencyAdapter : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
         val emergency: EmergencyData = emergencyList[position]
         holder.itemTitle.text = emergency.title
         holder.itemAddress.text = emergency.address
+        // 이미지를 Glide를 사용하여 가져와서 설정합니다.
+        Glide.with(holder.itemView.context)
+            .load(emergency.imageUrl)
+            .override(200, 200) // 이미지의 크기를 원하는 크기로 조정
+            .fitCenter() // 이미지를 디바이스 화면에 맞게 조정
+            .into(holder.itemImage)
     }
 
     // 3. Return the size of your dataset (invoked by the layout manager)
