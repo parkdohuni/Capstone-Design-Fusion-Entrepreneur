@@ -1,11 +1,17 @@
 package com.example.cooperar.ui
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -52,10 +58,35 @@ class DetailFragment: Fragment() {
             .override(600, 600)
             .fitCenter()
             .into(binding.detailIv)
+
+        binding.detailCallTv.setOnClickListener {
+            val permission = android.Manifest.permission.CALL_PHONE
+            val requestCode = 1
+
+            if (ContextCompat.checkSelfPermission(requireContext(), permission) == PackageManager.PERMISSION_GRANTED) {
+                // 이미 권한이 허용되었을 경우 전화를 걸 수 있습니다.
+                makePhoneCall()
+            } else {
+                // 권한이 허용되지 않았을 경우 권한을 요청합니다.
+                ActivityCompat.requestPermissions(requireActivity(), arrayOf(permission), requestCode)
+            }
+        }
+        binding.detailApplyTv.setOnClickListener {
+            val dlg = MyDialog(requireActivity() as AppCompatActivity, navController)
+            dlg.showDialog()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+    }
+    private fun makePhoneCall() {
+        val tel = "tel:01056986965"
+        val intent = Intent(Intent.ACTION_DIAL, Uri.parse(tel))
+
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+            startActivity(intent)
+        }
     }
     companion object {
         private const val EXTRA_MATCHING_DATA = "extra_matching_data"
