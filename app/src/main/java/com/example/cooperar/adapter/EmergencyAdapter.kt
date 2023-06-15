@@ -71,7 +71,7 @@ class EmergencyAdapter : RecyclerView.Adapter<EmergencyAdapter.MyViewHolder>() {
         // 이미지를 Glide를 사용하여 가져와서 설정합니다.
         Glide.with(holder.itemView.context)
             .load(emergency.imageUrl)
-            .override(200, 200) // 이미지의 크기를 원하는 크기로 조정
+            .override(600, 600) // 이미지의 크기를 원하는 크기로 조정
             .fitCenter() // 이미지를 디바이스 화면에 맞게 조정
             .into(holder.itemImage)
     }
