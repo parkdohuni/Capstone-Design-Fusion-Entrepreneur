@@ -22,7 +22,7 @@
         android:icon="@drawable/ic_dot"
         android:title="구인구직" />
     <item
-        android:id="@+id/myPageFragment"
+        android:id="@+id/mypageUserFragment"
         android:enabled="true"
         android:icon="@drawable/ic_dot"
         android:title="내정보" />
