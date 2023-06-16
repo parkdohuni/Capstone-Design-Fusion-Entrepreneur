@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_detailFragment_to_myPageFragment"
             app:destination="@id/myPageFragment" />
+        <action
+            android:id="@+id/action_detailFragment_to_mypageUserFragment"
+            app:destination="@id/mypageUserFragment" />
     </fragment>
     <fragment
         android:id="@+id/emergencyFragment"

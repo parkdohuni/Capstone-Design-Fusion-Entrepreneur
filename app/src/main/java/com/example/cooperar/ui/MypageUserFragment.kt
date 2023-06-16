@@ -37,7 +37,7 @@ class MypageUserFragment: Fragment() {
         // 1
         viewManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, true)
         // 2
-        viewAdapter = MypageAdapter()
+        viewAdapter = MypageAdapter(this)
         recyclerView = binding.mypageUserProcessRv.apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
@@ -55,7 +55,7 @@ class MypageUserFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         navController = Navigation.findNavController(view)
-
+        binding.mypageUserNameTv.text = "박도훈"
     }
 
     override fun onDestroyView() {

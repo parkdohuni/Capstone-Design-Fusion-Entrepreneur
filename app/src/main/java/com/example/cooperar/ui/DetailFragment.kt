@@ -20,6 +20,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.cooperar.MainActivity
 import com.example.cooperar.data.MatchingData
+import com.example.cooperar.data.MypageData
 import com.example.cooperar.databinding.FragmentDetailBinding
 
 class DetailFragment: Fragment() {
@@ -47,7 +48,10 @@ class DetailFragment: Fragment() {
         navController = Navigation.findNavController(view)
 
         val args: DetailFragmentArgs by navArgs()
-
+        val mypageData = MypageData(
+            title = args.item.title.toString(),
+            todo = args.item.todo.toString()
+        )
         binding.detailTitleTv.text = args.item.title.toString()
         binding.detailAddressTv.text = args.item.address.toString()
         binding.detailMoneyTv.text = args.item.money.toString()
@@ -72,7 +76,7 @@ class DetailFragment: Fragment() {
             }
         }
         binding.detailApplyTv.setOnClickListener {
-            val dlg = MyDialog(requireActivity() as AppCompatActivity, navController)
+            val dlg = MyDialog(requireActivity() as AppCompatActivity, navController, mypageData)
             dlg.showDialog()
         }
     }
